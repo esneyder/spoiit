@@ -1,0 +1,53 @@
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++                CONFIGURACIONES HTACCESS V1.0                 +
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+#PREVENIR HOT LINKING
+#--------------------
+#Remplaza ?misitio\.com/ con la direccion de tu web, donde lo requiera.
+
+RewriteEngine On
+RewriteCond %{HTTP_REFERER} !^http://(.+\.)?misitio\.com/ [NC]
+RewriteCond %{HTTP_REFERER} !^$
+#Remplaza /images/nohotlink.jpg con las imagen que diga "no me enlaces asi"
+RewriteRule .*\.(jpe?g|gif|bmp|png)$ /images/nohotlink.jpg [L]
+
+#ELIMIRAR WWW
+#--------------------
+
+RewriteEngine On
+RewriteCond %{HTTP_HOST} !^tu-sitio.com$ [NC]
+RewriteRule ^(.*)$ http://tu-sitio.com/$1 [L,R=301]
+
+#PÁGINAS DE ERROR
+#--------------------
+
+ErrorDocument 400 /errors/400.html
+ErrorDocument 401 /errors/401.html
+ErrorDocument 403 /errors/403.html
+ErrorDocument 404 /errors/404.html
+ErrorDocument 500 /errors/500.html
+
+#ELIMINAR EXTENSIONES DE ARCHIVOS EN URL´S
+#---------------------
+
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^(.*)$ $1.html
+# Reemplaza html con otras extensión como: php, htm, asp
+
+#PREVENIR LISTADO DE DIRECTORIOS
+#---------------------
+
+Options -Indexes
+
+#REDUCIR PESO COMPRIMIENDO ARCHIVOS
+#----------------------
+
+AddOutputFilterByType DEFLATE text/html text/plain text/xml application/xml application/xhtml+xml text/javascript text/css application/x-javascript
+BrowserMatch ^Mozilla/4 gzip-only-text/html
+BrowserMatch ^Mozilla/4.0[678] no-gzip
+BrowserMatch bMSIE !no-gzip !gzip-only-text/html
+
+#VER DESCRIPCIÓN: http://carrero.es/10-trucos-para-tu-htaccess/5560/
