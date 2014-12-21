@@ -16,3 +16,7 @@ lo que sabemos.
 **Colores Flat:**
 * [Flat UI Colors](http://flatuicolors.com/)
 * [Flat Color Picker](http://www.flatuicolorpicker.com/)
+
+*Bootstrap Grid*
+
+Hemos decidido integrar tal cual la rejilla de [Bootstrap](http://getbootstrap.com/css/#grid), debido a que ya son muchos diseñadores y programadores que la usan actualmente, esto con la finalidad de hacer todo lo más rapido posible.
