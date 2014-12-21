@@ -12,7 +12,7 @@ lo que sabemos.
 * [LESS](http://lesscss.org/)
 * [AJAX](http://www.w3schools.com/ajax/)
 
-**Recursos Integrados**
+####Recursos Integrados
 **Colores Flat:**
 * [Flat UI Colors](http://flatuicolors.com/)
 * [Flat Color Picker](http://www.flatuicolorpicker.com/)
